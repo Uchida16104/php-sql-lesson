@@ -9,8 +9,23 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
+      - name: install composer
+      - run: hp -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \&& php -r "if (hash_file('sha384', 'composer-setup.php') === 'a5c698ffe4b8e849a443b120cd5ba38043260d5c4023dbf93e1558871f1f07f58274fc6f4c93bcfd858c6bd0775cd8d1') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" \&& php composer-setup.php \&& php -r "unlink('composer-setup.php');" \&& mv composer.phar /usr/local/bin/composer
+      - name: initialize project
+      - run: root@eb351c5a0b16:/var/www# composer init
+      {
+    "name": "vendor/app",
+    "autoload": {
+        "psr-4": {
+            "Vendor\\App\\": "src/"
+        }
+    },
+    "scripts": { "test": "vendor/bin/phpunit" },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+        }
+    }
       - uses: actions/checkout@v2
       - name: Validate composer.json and composer.lock
         run: composer validate --strict
