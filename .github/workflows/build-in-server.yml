@@ -22,9 +22,7 @@ jobs:
           php-version: ${{ matrix.php-versions }}
 
       - name: Run server
-        run: |
-	  php -S localhost:8000 &
-	  sleep 5
+        run: php -S localhost:8000 &
 
       - name: Access server
         run: curl http://localhost:8000 >> $GITHUB_STEP_SUMMARY
