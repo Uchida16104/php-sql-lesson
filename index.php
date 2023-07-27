@@ -1,4 +1,5 @@
 <?php
 header("Content-Type: application/json; charset=utf-8");
-echo rand();
+$height=round(150/100,1);
+echo $height;
 ?>
