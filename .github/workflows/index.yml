@@ -1,15 +1,21 @@
   test:
-    name: sql-test
+    name: test
     runs-on: ubuntu-latest
     services:
       mysql:
-        image: mysql:5.7
+        image: mysql:8.0
         ports:
           - 3306:3306
         env:
-          MYSQL_ROOT_PASSWORD: index_password
+          MYSQL_ROOT_PASSWORD: hoge_password
         options: --health-cmd "mysqladmin ping -h localhost" --health-interval 20s --health-timeout 10s --health-retries 10
     steps:
-      - name: exec index.sql
-        run: |
-          mysql -h 127.0.0.1 --port 3306 -u root -p index_password -e "$(cat $(find ./ -name index.sql))"
+      - name: install homebrew
+        run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    steps:
+      - name: confirm homebrew version
+        run: brew -v
+    steps:
+      - name: install mysql
+        run: brew install mysql
+        
