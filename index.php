@@ -1,4 +1,5 @@
 <?php
 header("Content-Type: application/json; charset=utf-8");
-var_dump(phpinfo());
+print 'printで文字を表示します。';
+echo 'echoで文字を表示します。';
 ?>
