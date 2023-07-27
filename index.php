@@ -5,5 +5,5 @@ $array = array(
     "weight" => 65,
     "bmi"   => round(65/1.5/1.5,1),
 );
-var_dump($array["bmi"]);
+print 'BMI'.$array["bmi"].'kg/m/m';
 ?>
