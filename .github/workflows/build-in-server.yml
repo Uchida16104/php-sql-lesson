@@ -27,24 +27,11 @@ jobs:
       - name: Access server
         run: curl http://localhost:8000 >> $GITHUB_STEP_SUMMARY
 
-jobs:
-  run:
-    runs-on: ubuntu-latest
-     services:
-       mysql:
-         image: mysql:8.0
-         ports:
-           - 3306:3306
-         env:
-           MYSQL_ROOT_PASSWORD: hoge_password
-         options: --health-cmd "mysqladmin ping -h localhost" --health-interval 20s --health-timeout 10s --health-retries 10
-     steps:
-       - name: install homebrew
+      - name: install homebrew
          run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-     steps:
-       - name: confirm homebrew version
+
+      - name: confirm homebrew version
          run: brew -v
-     steps:
-       - name: install mysql
+         
+      - name: install mysql
          run: brew install mysql
-        
