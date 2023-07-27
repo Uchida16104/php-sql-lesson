@@ -8,6 +8,5 @@ const BMI = $weight/pow($height,2);
 print '身長:'.$height.'m';
 print '体重:'.$weight.'kg';
 echo 'BMI:'.BMI.'(kg/m/m)';
-$random = rand();
-echo $random;
+
 ?>
