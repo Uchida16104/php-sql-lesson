@@ -1,5 +1,5 @@
   test:
-    name: SQL-Test
+    name: sql-test
     runs-on: ubuntu-latest
     services:
       mysql:
