@@ -25,4 +25,4 @@ jobs:
       - name: Show Docker containers
         run: docker ps -a
       - name: Show databases for root user
-        run: pwd && ls -l && mysql --protocol=tcp -h localhost -P 3306 -u root -p root < index.sql
+        run: cd ../ && pwd && ls -l && mysql --protocol=tcp -h localhost -P 3306 -u root -p root < index.sql
