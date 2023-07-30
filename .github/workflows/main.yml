@@ -13,7 +13,7 @@ jobs:
           - 3306:3306
         env:
           MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: dev
+          MYSQL_DATABASE: foo
           MYSQL_USER: user
           MYSQL_PASSWORD: root_password
         options: >-
@@ -24,10 +24,6 @@ jobs:
     steps:
       - name: Show Docker containers
         run: docker ps -a
-      - name: Create database
-        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "CREATE DATABASE dev"
-      - name: Use database
-        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "Use dev"
       - name: Create table
         run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "CREATE TABLE param (id INT(3), name VARCHAR(10), class VARCHAR(10), score INT(3))"
       - name: Insert column1
