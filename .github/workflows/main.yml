@@ -25,4 +25,4 @@ jobs:
       - name: Show Docker containers
         run: docker ps -a
       - name: Show databases for root user
-        run: mysql -h 127.0.0.1 --port 3306 -u root -phoge_password -e "$(cat $(find ./ -name index.sql))"
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "$(cat $(find ./ -name index.sql))"
