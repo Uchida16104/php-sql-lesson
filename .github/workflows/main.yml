@@ -24,5 +24,31 @@ jobs:
     steps:
       - name: Show Docker containers
         run: docker ps -a
-      - name: Show databases for root user
-        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "CREATE DATABASE dev; USE dev; CREATE TABLE param (id INT(3), name VARCHAR(10), class VARCHAR(10), score INT(3)); INSERT INTO param(id, name, class, score) VALUES (1, 'test001', 'A', floor(rand()*100)); INSERT INTO param(id, name, class, score) VALUES (2, 'test002', 'A', floor(rand()*100)); INSERT INTO param(id, name, class, score) VALUES (3, 'test003', 'B', floor(rand()*100)); INSERT INTO param(id, name, class, score) VALUES (4, 'test004', 'A', floor(rand()*100)); INSERT INTO param(id, name, class, score) VALUES (5, 'test005', 'B', floor(rand()*100)); INSERT INTO param(id, name, class, score) VALUES (6, 'test006', 'C', floor(rand()*100)); INSERT INTO param(id, name, class, score) VALUES (7, 'test007', 'A', floor(rand()*100)); INSERT INTO param(id, name, class, score) VALUES (8, 'test008', 'B', floor(rand()*100)); INSERT INTO param(id, name, class, score) VALUES (9, 'test009', 'C', floor(rand()*100)); INSERT INTO param(id, name, class, score) VALUES (10, 'test010', 'D', floor(rand()*100)); SELECT * FROM param;"
+      - name: Create database
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "CREATE DATABASE dev"
+      - name: Use database
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "Use dev"
+      - name: Create table
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "CREATE TABLE param (id INT(3), name VARCHAR(10), class VARCHAR(10), score INT(3))"
+      - name: Insert column1
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "INSERT INTO param(id, name, class, score) VALUES (1, 'test001', 'A', floor(rand()*100))"
+      - name: Insert column2
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "INSERT INTO param(id, name, class, score) VALUES (2, 'test002', 'A', floor(rand()*100))"
+      - name: Insert column3
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "INSERT INTO param(id, name, class, score) VALUES (3, 'test003', 'B', floor(rand()*100))"
+      - name: Insert column4
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "INSERT INTO param(id, name, class, score) VALUES (4, 'test004', 'A', floor(rand()*100))"
+      - name: Insert column5
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "INSERT INTO param(id, name, class, score) VALUES (5, 'test005', 'B', floor(rand()*100))"
+      - name: Insert column6
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "INSERT INTO param(id, name, class, score) VALUES (6, 'test006', 'C', floor(rand()*100))"
+      - name: Insert column7
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "INSERT INTO param(id, name, class, score) VALUES (7, 'test007', 'A', floor(rand()*100))"
+      - name: Insert column8
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "INSERT INTO param(id, name, class, score) VALUES (8, 'test008', 'B', floor(rand()*100))"
+      - name: Insert column9
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "INSERT INTO param(id, name, class, score) VALUES (9, 'test009', 'C', floor(rand()*100))"
+      - name: Insert column10
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "INSERT INTO param(id, name, class, score) VALUES (10, 'test010', 'D', floor(rand()*100))"
+      - name: Show Columns
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "SELECT * FROM param"
