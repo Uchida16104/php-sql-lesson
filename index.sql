@@ -1,0 +1,14 @@
+CREATE DATABASE index;
+USE index;
+CREATE TABLE param (id INT(3), name VARCHAR(10), class VARCHAR(10), score INT(3));
+INSERT INTO param(id, name, class, score) VALUES (1, 'test001', 'A', floor(rand()*100));
+INSERT INTO param(id, name, class, score) VALUES (2, 'test002', 'A', floor(rand()*100));
+INSERT INTO param(id, name, class, score) VALUES (3, 'test003', 'B', floor(rand()*100));
+INSERT INTO param(id, name, class, score) VALUES (4, 'test004', 'A', floor(rand()*100));
+INSERT INTO param(id, name, class, score) VALUES (5, 'test005', 'B', floor(rand()*100));
+INSERT INTO param(id, name, class, score) VALUES (6, 'test006', 'C', floor(rand()*100));
+INSERT INTO param(id, name, class, score) VALUES (7, 'test007', 'A', floor(rand()*100));
+INSERT INTO param(id, name, class, score) VALUES (8, 'test008', 'B', floor(rand()*100));
+INSERT INTO param(id, name, class, score) VALUES (9, 'test009', 'C', floor(rand()*100));
+INSERT INTO param(id, name, class, score) VALUES (10, 'test010', 'D', floor(rand()*100));
+SELECT * FROM param;
