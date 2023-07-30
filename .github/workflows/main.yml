@@ -27,48 +27,48 @@ jobs:
       - name: Use database for root
         run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "USE foo; CREATE TABLE param (id INT(3), name VARCHAR(10), class VARCHAR(10), score INT(3))"
       - name: Insert column1 for root
-        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "INSERT INTO param(id, name, class, score) VALUES (1, 'test001', 'A', floor(rand()*100))"
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "USE foo; INSERT INTO param(id, name, class, score) VALUES (1, 'test001', 'A', floor(rand()*100))"
       - name: Insert column2 for root
-        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "INSERT INTO param(id, name, class, score) VALUES (2, 'test002', 'A', floor(rand()*100))"
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "USE foo; INSERT INTO param(id, name, class, score) VALUES (2, 'test002', 'A', floor(rand()*100))"
       - name: Insert column3 for root
-        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "INSERT INTO param(id, name, class, score) VALUES (3, 'test003', 'B', floor(rand()*100))"
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "USE foo; INSERT INTO param(id, name, class, score) VALUES (3, 'test003', 'B', floor(rand()*100))"
       - name: Insert column4 for root
-        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "INSERT INTO param(id, name, class, score) VALUES (4, 'test004', 'A', floor(rand()*100))"
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "USE foo; INSERT INTO param(id, name, class, score) VALUES (4, 'test004', 'A', floor(rand()*100))"
       - name: Insert column5 for root
-        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "INSERT INTO param(id, name, class, score) VALUES (5, 'test005', 'B', floor(rand()*100))"
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "USE foo; INSERT INTO param(id, name, class, score) VALUES (5, 'test005', 'B', floor(rand()*100))"
       - name: Insert column6 for root
-        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "INSERT INTO param(id, name, class, score) VALUES (6, 'test006', 'C', floor(rand()*100))"
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "USE foo; INSERT INTO param(id, name, class, score) VALUES (6, 'test006', 'C', floor(rand()*100))"
       - name: Insert column7 for root
-        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "INSERT INTO param(id, name, class, score) VALUES (7, 'test007', 'A', floor(rand()*100))"
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "USE foo; INSERT INTO param(id, name, class, score) VALUES (7, 'test007', 'A', floor(rand()*100))"
       - name: Insert column8 for root
-        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "INSERT INTO param(id, name, class, score) VALUES (8, 'test008', 'B', floor(rand()*100))"
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "USE foo; INSERT INTO param(id, name, class, score) VALUES (8, 'test008', 'B', floor(rand()*100))"
       - name: Insert column9 for root
-        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "INSERT INTO param(id, name, class, score) VALUES (9, 'test009', 'C', floor(rand()*100))"
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "USE foo; INSERT INTO param(id, name, class, score) VALUES (9, 'test009', 'C', floor(rand()*100))"
       - name: Insert column10 for root
-        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "INSERT INTO param(id, name, class, score) VALUES (10, 'test010', 'D', floor(rand()*100))"
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "USE foo; INSERT INTO param(id, name, class, score) VALUES (10, 'test010', 'D', floor(rand()*100))"
       - name: Show Columns for root
-        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "SELECT * FROM param"
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "USE foo; SELECT * FROM param"
       - name: Use database for user1
         run: mysql --protocol=tcp -h localhost -P 3306 -u user1 -puser1_password -e "USE foo; CREATE TABLE param (id INT(3), name VARCHAR(10), class VARCHAR(10), score INT(3))"
       - name: Insert column1 for user1
-        run: mysql --protocol=tcp -h localhost -P 3306 -u user1 -puser1_password -e "INSERT INTO param(id, name, class, score) VALUES (1, 'test001', 'A', floor(rand()*100))"
+        run: mysql --protocol=tcp -h localhost -P 3306 -u user1 -puser1_password -e "USE foo; INSERT INTO param(id, name, class, score) VALUES (1, 'test001', 'A', floor(rand()*100))"
       - name: Insert column2 for user1
-        run: mysql --protocol=tcp -h localhost -P 3306 -u user1 -puser1_password -e "INSERT INTO param(id, name, class, score) VALUES (2, 'test002', 'A', floor(rand()*100))"
+        run: mysql --protocol=tcp -h localhost -P 3306 -u user1 -puser1_password -e "USE foo; INSERT INTO param(id, name, class, score) VALUES (2, 'test002', 'A', floor(rand()*100))"
       - name: Insert column3 for user1
-        run: mysql --protocol=tcp -h localhost -P 3306 -u user1 -puser1_password -e "INSERT INTO param(id, name, class, score) VALUES (3, 'test003', 'B', floor(rand()*100))"
+        run: mysql --protocol=tcp -h localhost -P 3306 -u user1 -puser1_password -e "USE foo; INSERT INTO param(id, name, class, score) VALUES (3, 'test003', 'B', floor(rand()*100))"
       - name: Insert column4 for user1
-        run: mysql --protocol=tcp -h localhost -P 3306 -u user1 -puser1_password -e "INSERT INTO param(id, name, class, score) VALUES (4, 'test004', 'A', floor(rand()*100))"
+        run: mysql --protocol=tcp -h localhost -P 3306 -u user1 -puser1_password -e "USE foo; INSERT INTO param(id, name, class, score) VALUES (4, 'test004', 'A', floor(rand()*100))"
       - name: Insert column5 for user1
-        run: mysql --protocol=tcp -h localhost -P 3306 -u user1 -puser1_password -e "INSERT INTO param(id, name, class, score) VALUES (5, 'test005', 'B', floor(rand()*100))"
+        run: mysql --protocol=tcp -h localhost -P 3306 -u user1 -puser1_password -e "USE foo; INSERT INTO param(id, name, class, score) VALUES (5, 'test005', 'B', floor(rand()*100))"
       - name: Insert column6 for user1
-        run: mysql --protocol=tcp -h localhost -P 3306 -u user1 -puser1_password -e "INSERT INTO param(id, name, class, score) VALUES (6, 'test006', 'C', floor(rand()*100))"
+        run: mysql --protocol=tcp -h localhost -P 3306 -u user1 -puser1_password -e "USE foo; INSERT INTO param(id, name, class, score) VALUES (6, 'test006', 'C', floor(rand()*100))"
       - name: Insert column7 for user1
-        run: mysql --protocol=tcp -h localhost -P 3306 -u user1 -puser1_password -e "INSERT INTO param(id, name, class, score) VALUES (7, 'test007', 'A', floor(rand()*100))"
+        run: mysql --protocol=tcp -h localhost -P 3306 -u user1 -puser1_password -e "USE foo; INSERT INTO param(id, name, class, score) VALUES (7, 'test007', 'A', floor(rand()*100))"
       - name: Insert column8 for user1
-        run: mysql --protocol=tcp -h localhost -P 3306 -u user1 -puser1_password -e "INSERT INTO param(id, name, class, score) VALUES (8, 'test008', 'B', floor(rand()*100))"
+        run: mysql --protocol=tcp -h localhost -P 3306 -u user1 -puser1_password -e "USE foo; INSERT INTO param(id, name, class, score) VALUES (8, 'test008', 'B', floor(rand()*100))"
       - name: Insert column9 for user1
-        run: mysql --protocol=tcp -h localhost -P 3306 -u user1 -puser1_password -e "INSERT INTO param(id, name, class, score) VALUES (9, 'test009', 'C', floor(rand()*100))"
+        run: mysql --protocol=tcp -h localhost -P 3306 -u user1 -puser1_password -e "USE foo; INSERT INTO param(id, name, class, score) VALUES (9, 'test009', 'C', floor(rand()*100))"
       - name: Insert column10 for user1
-        run: mysql --protocol=tcp -h localhost -P 3306 -u user1 -puser1_password -e "INSERT INTO param(id, name, class, score) VALUES (10, 'test010', 'D', floor(rand()*100))"
+        run: mysql --protocol=tcp -h localhost -P 3306 -u user1 -puser1_password -e "USE foo; INSERT INTO param(id, name, class, score) VALUES (10, 'test010', 'D', floor(rand()*100))"
       - name: Show Columns for user1
-        run: mysql --protocol=tcp -h localhost -P 3306 -u user1 -puser1_password -e "SELECT * FROM param"
+        run: mysql --protocol=tcp -h localhost -P 3306 -u user1 -puser1_password -e "USE foo; SELECT * FROM param"
