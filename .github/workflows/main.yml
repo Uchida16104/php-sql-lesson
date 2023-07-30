@@ -25,9 +25,7 @@ jobs:
       - name: Show Docker containers
         run: docker ps -a
       - name: Use database for root
-        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "USE foo"
-      - name: Create table for root
-        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "CREATE TABLE param (id INT(3), name VARCHAR(10), class VARCHAR(10), score INT(3))"
+        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "USE foo; CREATE TABLE param (id INT(3), name VARCHAR(10), class VARCHAR(10), score INT(3))"
       - name: Insert column1 for root
         run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "INSERT INTO param(id, name, class, score) VALUES (1, 'test001', 'A', floor(rand()*100))"
       - name: Insert column2 for root
@@ -51,9 +49,7 @@ jobs:
       - name: Show Columns for root
         run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "SELECT * FROM param"
       - name: Use database for user1
-        run: mysql --protocol=tcp -h localhost -P 3306 -u user1 -puser1_password -e "USE foo"
-      - name: Create table for user1
-        run: mysql --protocol=tcp -h localhost -P 3306 -u user1 -puser1_password -e "CREATE TABLE param (id INT(3), name VARCHAR(10), class VARCHAR(10), score INT(3))"
+        run: mysql --protocol=tcp -h localhost -P 3306 -u user1 -puser1_password -e "USE foo; CREATE TABLE param (id INT(3), name VARCHAR(10), class VARCHAR(10), score INT(3))"
       - name: Insert column1 for user1
         run: mysql --protocol=tcp -h localhost -P 3306 -u user1 -puser1_password -e "INSERT INTO param(id, name, class, score) VALUES (1, 'test001', 'A', floor(rand()*100))"
       - name: Insert column2 for user1
