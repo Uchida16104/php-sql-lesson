@@ -1,5 +1,6 @@
-CREATE DATABASE dev;
-USE dev;
+DROP DATABASE foo;
+CREATE DATABASE foo;
+USE foo;
 CREATE TABLE param (id INT(3), name VARCHAR(10), class VARCHAR(10), score INT(3));
 INSERT INTO param(id, name, class, score) VALUES (1, 'test001', 'A', floor(rand()*100));
 INSERT INTO param(id, name, class, score) VALUES (2, 'test002', 'A', floor(rand()*100));
