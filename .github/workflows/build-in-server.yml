@@ -22,7 +22,7 @@ jobs:
           php-version: ${{ matrix.php-versions }}
           
       - name: Docker process
-        run: sudo systemctl status docker && sudo docker ps -a && sudo systemctl restart docker
+        run: sudo systemctl status docker && sudo docker ps -a && sudo docker start a5f612f1b4ab4843b1b15592d51c3894_mysql_94ed0b && sudo systemctl restart docker
 
       - name: Run server
         run: php -S localhost:8000 &
