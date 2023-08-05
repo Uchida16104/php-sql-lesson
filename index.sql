@@ -10,7 +10,7 @@ begin
   while i < maxNum do
     set i = i + 1;
     set str = lpad(i, 3, '0');
-    INSERT INTO param(id, name, class, subject, score) VALUES (str, LEFT(UUID(),rand()*10), floor(rand()*100), LEFT(UUID(),rand()*10), floor(rand()*100));
+    INSERT INTO param(id, name, class, subject, score) VALUES (str, LEFT(UUID(),rand()*5), floor(rand()*100), LEFT(UUID(),rand()*5), floor(rand()*100));
   end while;
 end
 //
