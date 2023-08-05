@@ -18,9 +18,9 @@ jobs:
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
-        extensions: mbstring, pdo, pdo_mysql
         with:
           php-version: ${{ matrix.php-versions }}
+          extensions: mbstring, pdo, pdo_mysql
           
       - name: Docker process
         run: sudo systemctl status docker && sudo docker ps -a && sudo systemctl restart docker
