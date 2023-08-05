@@ -18,6 +18,7 @@ jobs:
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
+        extensions: mbstring, pdo, pdo_mysql
         with:
           php-version: ${{ matrix.php-versions }}
           
