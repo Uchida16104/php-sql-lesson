@@ -23,7 +23,7 @@ jobs:
           extensions: mbstring, pdo, pdo_mysql
 
       - name: Node Install and Connect MySQL
-        run: npm install mysql
+        run: npm install mysql && node index.js
         
       - name: Confirm MySQL Firewall
         run: sudo iptables -A INPUT -p tcp -m tcp --dport 3306 -j ACCEPT
