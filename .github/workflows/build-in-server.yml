@@ -30,7 +30,7 @@ jobs:
     　　　　　　　　　  run: sudo apt install nodejs
 
       - name: Node Install and Connect MySQL
-        run: npm install mysql && node index.js
+        run: npm install mysql
         
       - name: Confirm MySQL Firewall
         run: sudo iptables -A INPUT -p tcp -m tcp --dport 3306 -j ACCEPT
