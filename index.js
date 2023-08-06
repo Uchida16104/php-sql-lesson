@@ -10,8 +10,7 @@ var connection = mysql.createConnection({
 connection.connect(function() {
   console.log("Connected to MySQL DB!");
   var sql = "SELECT * FROM param";
-  connection.query(sql, function (err, result) {
-    if (err) throw err;
+  connection.query(sql, function (result) {
     console.log("Result: ", result);
   });
 });
