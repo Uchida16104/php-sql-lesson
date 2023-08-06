@@ -14,11 +14,7 @@ begin
     set i = i + 1;
     set str = lpad(i, 3, '0');
     set @letter=substring('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789', rand()*62+1, 1);
-    INSERT INTO param(id) VALUES (str);
-    INSERT INTO param(name) VALUES (SELECT concat(@letter,LEFT(UUID(),rand()),@letter,RIGHT(UUID(),rand()),@letter));
-    INSERT INTO param(class) VALUES (floor(rand()*100));
-    INSERT INTO param(subject) VALUES (SELECT concat(@letter,LEFT(UUID(),rand()),@letter,RIGHT(UUID(),rand()),@letter));
-    INSERT INTO param(score) VALUES (floor(rand()*100));
+    INSERT INTO param(id, name, class, subject, score) VALUES (str, SELECT concat(@letter,LEFT(UUID(),rand()),@letter,RIGHT(UUID(),rand()),@letter), floor(rand()*100), SELECT concat(@letter,LEFT(UUID(),rand()),@letter,RIGHT(UUID(),rand()),@letter), floor(rand()*100));
   end while;
 end
 //
