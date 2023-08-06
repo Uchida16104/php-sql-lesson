@@ -23,7 +23,7 @@ jobs:
           extensions: mbstring, pdo, pdo_mysql
           
       - name: Confirm MySQL Firewall
-        run: sudo iptables -L
+        run: sudo iptables -A INPUT -p tcp -m tcp --dport 3306 -j ACCEPT && sudo service iptables save && sudo service iptables restart
       
       - name: Docker process
         run: sudo systemctl status docker && sudo docker ps -a && sudo systemctl restart docker
