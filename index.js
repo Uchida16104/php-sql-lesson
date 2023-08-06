@@ -1,4 +1,4 @@
-const mysql = require('mysql');
+var mysql = require('mysql');
  
 var client = mysql.createClient({
   host: "127.0.0.1",
