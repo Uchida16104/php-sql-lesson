@@ -17,7 +17,7 @@ begin
     INSERT INTO param(id) VALUES (str);
     INSERT INTO param(name) VALUES (SELECT concat(@letter,LEFT(UUID(),rand()),@letter,RIGHT(UUID(),rand()),@letter));
     INSERT INTO param(class) VALUES (floor(rand()*100));
-    INSERT INTO param(subject) VALUES ('National Language'), ('Mathematics'), ('Foreign Language'), ('Physics'), ('Chemistry'), ('Earth Science'), ('Biology'), ('Geography'), ('History'), ('Political Science'), ('Economics');
+    INSERT INTO param(subject) VALUES (0), (1), (2), (3), (4), (5), (6), (7), (8), (9), (10);
     INSERT INTO param(score) VALUES (floor(rand()*100));
   end while;
 end
