@@ -27,6 +27,7 @@ jobs:
   　　　　　　　　　　　　　with:
     　　　　　　　　　  node-version: '18'
     　　　　　　　　　  cache: npm
+    　　　　　　　　　  run: sudo apt install nodejs
 
       - name: Node Install and Connect MySQL
         run: npm install mysql && node index.js
