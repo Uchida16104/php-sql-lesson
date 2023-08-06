@@ -1,6 +1,7 @@
 DROP DATABASE foo;
 CREATE DATABASE foo;
 USE foo;
+select user, host from mysql.user;
 SELECT CURRENT_USER();
 SHOW VARIABLES WHERE Variable_name = 'hostname';
 SHOW VARIABLES WHERE Variable_name = 'port';
