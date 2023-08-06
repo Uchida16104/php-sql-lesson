@@ -21,6 +21,7 @@ jobs:
         with:
           php-version: ${{ matrix.php-versions }}
           extensions: mbstring, pdo, pdo_mysql
+          mysql-socket: /var/run/mysqld/mysqld.sock	
           
       - name: Docker process
         run: sudo systemctl status docker && sudo docker ps -a && sudo systemctl restart docker
