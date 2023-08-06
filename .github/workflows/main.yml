@@ -26,4 +26,4 @@ jobs:
       - name: Show Docker containers
         run: docker ps -a
       - name: Compute database for root
-        run: mysql --protocol=tcp -h localhost -P 3306 -u root -proot_password -e "source index.sql" >> $GITHUB_STEP_SUMMARY
+        run: mysql --protocol=tcp -h 127.0.0.1 -P 3306 -u root -proot_password -e "source index.sql" >> $GITHUB_STEP_SUMMARY
