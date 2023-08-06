@@ -7,7 +7,6 @@ var connection = mysql.createConnection({
   database: "foo"
 });
  
-connection.connect(function(err) {
-  if (err) throw err;
+connection.connect(function() {
   console.log("Connected to MySQL DB!");
 });
