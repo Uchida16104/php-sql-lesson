@@ -10,6 +10,7 @@ create procedure loop_insert(in maxNum int)
 begin
   declare i int default 0;
   declare str varchar(45);
+  declare letter varchar(45);
   while i < maxNum do
     set i = i + 1;
     set str = lpad(i, 3, '0');
