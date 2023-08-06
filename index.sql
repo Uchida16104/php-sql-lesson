@@ -1,6 +1,7 @@
 DROP DATABASE foo;
 CREATE DATABASE foo;
 USE foo;
+SHOW VARIABLES LIKE 'hostname';
 CREATE TABLE param (id INT(3), name VARCHAR(10), class VARCHAR(10), subject VARCHAR(10), score INT(3));
 delimiter //
 create procedure loop_insert(in maxNum int)
