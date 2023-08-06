@@ -13,7 +13,8 @@ begin
   while i < maxNum do
     set i = i + 1;
     set str = lpad(i, 3, '0');
-    INSERT INTO param(id, name, class, subject, score) VALUES (str, SELECT concat(substring('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789', rand()*62+1, 1), LEFT(UUID(), rand()), substring('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789', rand()*62+1, 1),RIGHT(UUID(), rand()), substring('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789', rand()*62+1, 1)), floor(rand()*100), SELECT concat(substring('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789', rand()*62+1, 1), LEFT(UUID(), rand()), substring('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789', rand()*62+1, 1),RIGHT(UUID(), rand()), substring('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789', rand()*62+1, 1)), floor(rand()*100));
+    set letter = substring('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789', rand()*62+1, 1);
+    INSERT INTO param(id, name, class, subject, score) VALUES (str, SELECT concat(letter, LEFT(UUID(), rand()), letter ,RIGHT(UUID(), rand()), letter), floor(rand()*100), SELECT concat(letter, LEFT(UUID(), rand()), letter,RIGHT(UUID(), rand()), letter), floor(rand()*100));
   end while;
 end
 //
