@@ -1,6 +1,7 @@
 DROP DATABASE foo;
 CREATE DATABASE foo;
 USE foo;
+SELECT CURRENT_USER();
 SHOW VARIABLES WHERE Variable_name = 'hostname';
 SHOW VARIABLES WHERE Variable_name = 'port';
 CREATE TABLE param (id INT(3), name VARCHAR(10), class VARCHAR(10), subject VARCHAR(10), score INT(3));
