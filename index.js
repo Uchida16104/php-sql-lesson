@@ -7,7 +7,6 @@ var pool = mysql.createPool({
   database: "foo"
 });
 
-pool.query("SELECT * FROM param;", (error, results) => {
-  if (error) throw error;
+pool.query("SELECT * FROM param;", (results) => {
   console.log(results[0]);
 });
