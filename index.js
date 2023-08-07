@@ -1,16 +1,13 @@
 var mysql = require('mysql');
  
-var connection = mysql.createConnection({
+var connection = mysql.createPool({
   host: "127.0.0.1",
   user: "root",
   password: "root_password",
   database: "foo"
 });
- 
-connection.connect(function() {
-  console.log("Connected to MySQL DB!");
-  var sql = "SELECT * FROM param";
-  connection.query(sql, function (result) {
-    console.log("Result: ", result);
-  });
+
+pool.query("SELECT * FROM param;", (error, results) => {
+  if (error) throw error;
+  console.log(results[0]);
 });
