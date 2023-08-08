@@ -9,7 +9,7 @@ RUN <<EOF
 EOF
 RUN apt-get update
 RUN cd
-ADD /etc/php/php.ini /etc/php/8.1/apache2
+ADD php/php.ini /etc/php/8.1/apache2
 RUN wget http://pecl.php.net/get/PDO_MYSQL-1.0.2.tgz
 RUN tar xvf PDO_MYSQL-1.0.2.tgz
 RUN cd PDO_MYSQL-1.0.2
