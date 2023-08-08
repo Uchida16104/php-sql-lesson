@@ -54,7 +54,7 @@ services:
     container_name: mysql-trial2
     platform: linux/x86_64
     volumes:
-      - "/var/lib/mysql"
+      - ".:/var/lib/mysql"
     expose:
       - '3000'
     ports:
@@ -64,6 +64,36 @@ services:
       - MYSQL_DATABASE=lesson
       - MYSQL_USER=hirotoshiuchida
       - MYSQL_PASSWORD=root
+  node:
+    build: .
+    image: node:18.17.0
+    container_name: node.js
+    tty: true
+    ports: 
+      - '8800:80'
+    volumes:
+      - '/var/lib'
+    restart: always
+  ruby:
+    build: .
+    image: ruby:3.2.2
+    container_name: ruby
+    tty: true
+    ports:
+      - '8008:80'
+    volumes:
+      - '/var/lib'
+    restart: always
+  python3:
+    build: .
+    image: python3.11.4
+    container_name: python3
+    tty: true
+    ports:
+      - '8880:80'
+    volumes:
+      - '/var/lib'
+    restart: always
 networks:
   default:
     name: phpsql
