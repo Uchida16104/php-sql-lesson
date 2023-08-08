@@ -47,7 +47,6 @@ services:
     build: ./php
     volumes:
       - "./html:/var/www/html"
-      - ".ubuntu/php/php.ini:/usr/local/etc/php/php.ini"
     ports:
       - 8000:80
     depends_on:
