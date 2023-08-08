@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   web:
-    image: nginx
+    image: nginx:latest
     build: .
     container_name: phpdb
     tty: true
@@ -17,7 +17,7 @@ services:
       - NGINX_PORT=80
     restart: always
   db:
-    image: mysql
+    image: mysql:latest
     container_name: database
     restart: always
     volumes:
@@ -55,7 +55,7 @@ services:
     links:
       - db:mysql
   mysql:
-    image: mysql
+    image: mysql:latest
     container_name: mysql-trial2
     platform: linux/x86_64
     volumes:
@@ -71,7 +71,7 @@ services:
       - MYSQL_PASSWORD=root
   node:
     build: .
-    image: node:18.17.0
+    image: node:latest
     container_name: node.js
     tty: true
     ports: 
@@ -81,7 +81,7 @@ services:
     restart: always
   ruby:
     build: .
-    image: ruby:3.2.2
+    image: ruby:latest
     container_name: ruby
     tty: true
     ports:
@@ -91,7 +91,7 @@ services:
     restart: always
   python3:
     build: .
-    image: python3.11.4
+    image: python3:latest
     container_name: python3
     tty: true
     ports:
@@ -99,6 +99,25 @@ services:
     volumes:
       - '/var/lib'
     restart: always
+  wordpress:
+    container_name: wordpress
+    hostname: wordpress
+    image: wordpress:latest
+    volumes:
+      - ./docker-data/wordpress/themes:/var/www/html/wp-content/themes
+      - ./docker-data/wordpress/plugins:/var/www/html/wp-content/plugins
+      - ./docker-data/wordpress/uploads:/var/www/html/wp-content/uploads
+    links:
+      - mysql
+    depends_on:
+      - mysql
+    ports:
+      - "8088:80"
+    environment:
+      - WORDPRESS_DB_HOST=wordpress
+      - WORDPRESS_DB_NAME=wordpress
+      - WORDPRESS_DB_USER=wordpress
+      - WORDPRESS_DB_PASSWORD=wordpress
 networks:
   default:
     name: phpsql
