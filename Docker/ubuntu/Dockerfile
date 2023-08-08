@@ -8,9 +8,9 @@ RUN <<EOF
         eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 EOF
 RUN apt-get update
+ADD ./php/php.ini /etc/php/8.1/apache2
 RUN wget http://pecl.php.net/get/PDO_MYSQL-1.0.2.tgz
 RUN tar xvf PDO_MYSQL-1.0.2.tgz
 RUN cd PDO_MYSQL-1.0.2
 RUN apt install -y php-dev
-ADD ./php/php.ini /etc/php/8.1/apache2
 COPY --from=composer /usr/bin/composer /usr/bin/composer
