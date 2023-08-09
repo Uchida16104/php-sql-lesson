@@ -1,12 +1,292 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WordPress Front Page</title>
+<meta charset='utf-8' />
+<meta name="application-name" content="PICO CLOCK">
+<meta name="viewport", content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible", content="IE=edge" />
+<meta http-equiv="Content-Style-Type", content="text/css" />
+<title>PICO CLOCK</title>
+<script type="application/ld+json">
+{
+"@context": "http://schema.org/",
+"@type": "Article",
+"mainEntityOfPage": "https://uchida16104.github.io/clock.html",
+"headline": "PICO CLOCK",
+"description": "Please save source code of this page and enjoy to remix your JavaScript, Ruby, Python, Go, Lua, and VBScript Code!! Then, you can view the result on console.",
+"datePublished": "2022-03-30",
+"dateModified": "2023-01-29"
+}
+</script>
+<script type="text/javascript">
+const clock = () => {
+  const d = new Date();
+  let year = d.getFullYear();
+  let month = d.getMonth() + 1;
+  let date = d.getDate();
+  let dayNum = d.getDay();
+  const weekday = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+  let day = weekday[dayNum];
+  let hour = d.getHours();
+  let min = d.getMinutes();
+  let sec = d.getSeconds();
+  month = month < 10 ? "0" + month : month;
+  date = date < 10 ? "0" + date : date;
+  hour = hour < 10 ? "0" + hour : hour;
+  min = min < 10 ? "0" + min : min;
+  sec = sec < 10 ? "0" + sec : sec;
+  let today = `${year}.${month}.${date} ${day}`;
+  let time = `${hour}:${min}:${sec}`;
+  document.querySelector(".clock-date").innerText = today;
+  document.querySelector(".clock-time").innerText = time;
+};
+setInterval(clock, 1000);
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.10.5/brython.js"></script>
+<script src="https://cdn.opalrb.com/opal/0.8.0/opal.js"></script>
+<script src="http://cdn.opalrb.org/opal/0.8.0/native.js"></script>
+<script src="https://cdn.opalrb.com/opal/0.8.0/opal-parser.js"></script>
+<script src='https://github.com/fengari-lua/fengari-web/releases/download/v0.1.4/fengari-web.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
+<script type="text/javascript">
+window.alert("Hello, JavaScript!")
+</script>
+<script type="text/javascript">
+Opal.load("opal-parser");
+</script>
+<script type="text/ruby">
+require 'opal'
+require 'native'
+print "Hello, Ruby!"
+</script>
+<script language="text/vbscript">
+msgbox "Hello, VBScript!!"
+</script>
+<script type="text/javascript">
+;(function() {
+  var pkg = {};
+  pkg["../.."] = (function() {
+    function main () {
+      window.alert("Hello, Go!")
+    };
+    return {
+      main: main
+    };
+  })();
+  return pkg["../.."].main();
+})()
+</script>
+<script type="application/lua">
+local js = require "js"
+local window = js.global
+
+window:alert("Hello, Lua!")
+</script>
+<title>PICO CLOCK</title>
+<style type="text/css">
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+body {
+  width: auto;
+  height: 100vh;
+  background-color: black;
+  background-size: cover;
+}
+/* From uiverse.io by @menezes11 */
+button {
+ position: relative;
+ padding: 1em 1.8em;
+ outline: none;
+ border: 1px solid #303030;
+ background: transparent;
+ color: white;
+ text-transform: uppercase;
+ letter-spacing: 2px;
+ font-size: 15px;
+ overflow: hidden;
+ transition: 0.2s;
+ border-radius: 0px;
+ cursor: pointer;
+ font-family: 'Press Start 2P',monospace;
+ font-weight: bold;
+}
+
+button:hover {
+ box-shadow: 0 0 10px black, 0 0 25px white, 0 0 50px black;
+ transition-delay: 0.6s;
+}
+
+button span {
+ position: absolute;
+}
+
+button span:nth-child(1) {
+ top: 0;
+ left: -100%;
+ width: 100%;
+ height: 2px;
+ background: linear-gradient(90deg, black,white);
+}
+
+button:hover span:nth-child(1) {
+ left: 100%;
+ transition: 0.7s;
+}
+
+button span:nth-child(3) {
+ bottom: 0;
+ right: -100%;
+ width: 100%;
+ height: 2px;
+ background: linear-gradient(90deg, white,black);
+}
+
+button:hover span:nth-child(3) {
+ right: 100%;
+ transition: 0.7s;
+ transition-delay: 0.35s;
+}
+
+button span:nth-child(2) {
+ top: -100%;
+ right: 0;
+ width: 2px;
+ height: 100%;
+ background: linear-gradient(180deg, black,white);
+}
+
+button:hover span:nth-child(2) {
+ top: 100%;
+ transition: 0.7s;
+ transition-delay: 0.17s;
+}
+
+button span:nth-child(4) {
+ bottom: -100%;
+ left: 0;
+ width: 2px;
+ height: 100%;
+ background: linear-gradient(360deg, white,black);
+}
+
+button:hover span:nth-child(4) {
+ bottom: 100%;
+ transition: 0.7s;
+ transition-delay: 0.52s;
+}
+
+button:active {
+ background: #ae00af;
+ background: linear-gradient(to top right, black,white);
+ color: #bfbfbf;
+ box-shadow: 0 0 8px white, 0 0 8px black, 0 0 8px white;
+ transition: 0.1s;
+}
+
+button:active span:nth-child(1) 
+span:nth-child(2) 
+span:nth-child(2) 
+span:nth-child(2) {
+ transition: none;
+ transition-delay: none;
+}
+.container {
+  width: 100%;
+  height: auto;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.clock {
+  width: 100%;
+  height: auto;
+  font-family: 'Press Start 2P', monospace;
+  background-image: radial-gradient(circle, black 63%, red 64%, orange 65%, yellow 66%, green 67%, blue 68%, indigo 69%, violet 70%, black 1%);
+  color: white ;
+  text-shadow: 0 0 20px black;
+  line-height: 1.2;
+  text-align: center;
+  top: -10px;
+  left: -10px;
+  bottom: 0px;
+  right: 0px;
+  margin: 0;
+  padding: 0;
+}
+.clock-date {
+  font-size: 25px;
+}
+.clock-time {
+  font-size: 100px;
+}
+@media screen and (max-width: 500px) {
+  .clock-date {
+    font-size: 5vw;
+  }
+  .clock-time {
+    font-size: 10vw;
+  }
+}
+a{
+    color: white;
+}
+</style>
 </head>
+<body onload="brython()">
+<script type="text/python">
+from browser import document, alert
+alert("Hello, Python!")
+</script>
+</body>
 <body>
-  <h1>Connection Successed!!</h1>
+<div class="container">
+<div class="clock">
+<p>Please save source code of this page and enjoy to remix your JavaScript, Ruby, Python, Go, Lua, and VBScript Code!!</p>
+<p>Then, you can view the result on console.</p>
+<br>
+<p class="clock-date"></p>
+<p class="clock-time"></p>
+<br>
+<p>by Hirotoshi Uchida</p>
+<br>
+<br>
+<br>
+<br>
+<small>
+<p>Externel links</p>
+<br>
+<small>
+<p><a href="https://uchida16104.github.io/Password-Maker-for-Web/Password-Maker-for-Web.html">Password Maker for Web</a></p>
+<p><a href="https://uchida16104.github.io/todolist_english.html">To do list (English)</a></p>
+<p><a href="https://uchida16104.github.io/todolist_japanese.html">To do list (Japanese)</a></p>
+<p><a href="https://uchida16104.github.io/stopwatch.html">Stop Watch</a></p>
+<p><a href="https://uchida16104.github.io/hydra-scanner.html">hydra scanner</a></p>
+<p><a href="https://github.com/Uchida16104/Uchida16104.github.io/blob/master/clock.html">Source Code on GitHub</a></p>
+<br>
+<p>*If you are viewing this page on a smartphone, it recommends using the page of PC version.</p>
+<br>
+<p>Thanks Olivia Jack that I used <a href="https://github.com/hydra-synth">"hydra synth"</a> by her to create this page.</p>
+</small>
+<script src="https://unpkg.com/hydra-synth"></script>
+<button onclick="timer()">Timer</button>
+<button onclick="pixelatedTimer()">Pixelated Timer</button>
+<br>
+<canvas id="myCanvas" width="360px" height="360px"></canvas>
+<script>
+var hydra = new Hydra({
+canvas: document.getElementById("myCanvas"),
+detectAudio: false
+})
+shape(99).diff(shape(99).scale(.99)).mult(osc().kaleid(99)).add(shape(2,.01).mult(osc().rotate(Math.PI/2)).rotate(Math.PI/2).layer(shape(2,.01).mult(osc(1).thresh().rotate(Math.PI/2)).mult(shape(1).scale(.1)).rotate(Math.PI/2).luma().mult(shape(1).scale(.1))).rotate(-Math.PI*2).scale(-1).mult(shape(99))).rotate(.1,.1).scale(3).contrast(1.01).out();
+    function timer(){
+        shape(99).diff(shape(99).scale(.99)).mult(osc().kaleid(99)).add(shape(2,.01).mult(osc().rotate(Math.PI/2)).rotate(Math.PI/2).layer(shape(2,.01).mult(osc(1).thresh().rotate(Math.PI/2)).mult(shape(1).scale(.1)).rotate(Math.PI/2).luma().mult(shape(1).scale(.1))).rotate(-Math.PI*2).scale(-1).mult(shape(99))).rotate(.1,.1).scale(3).contrast(1.01).diff(src(o0).scale(.99).diff(src(o0).scale(1.01))).out()
+    }
+    function pixelatedTimer(){
+        shape(99).diff(shape(99).scale(.99)).mult(osc().kaleid(99)).add(shape(2,.01).mult(osc().rotate(Math.PI/2)).rotate(Math.PI/2).layer(shape(2,.01).mult(osc(1).thresh().rotate(Math.PI/2)).mult(shape(1).scale(.1)).rotate(Math.PI/2).luma().mult(shape(1).scale(.1))).rotate(-Math.PI*2).scale(-1).mult(shape(99))).rotate(.1,.1).scale(3).contrast(1.01).mult(shape(4,0,1).repeat(50,50)).diff(src(o0).scale(.99).diff(src(o0).scale(1.01))).diff(src(o0).pixelate(50,50)).out()
+    }
+</script>
+</div>
+</div>
 </body>
 </html>
