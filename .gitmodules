@@ -1,0 +1,3 @@
+[submodule "php-sql-lesson"]
+path = php-sql-lesson
+url = https://github.com/Uchida16104/php-sql-lesson
