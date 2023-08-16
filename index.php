@@ -20,11 +20,14 @@ try {
   $strWeight=' 身長:';
   $strHeight=' 体重:';
   $strBmi=' BMI:';
-  $boolWeight=' '.$strWeight===$weight;
   echo $strHeight.$height.'m' ;
   echo $strWeight.$weight.'kg';
   echo $strBmi.$bmi.'kg/m/m';
-  echo $boolWeight;
+  if($strWeight===$weight){
+    echo true;
+  } else {
+    echo false;
+  }
   die();
 }
 $dbh = null;
