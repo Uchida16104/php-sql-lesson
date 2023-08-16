@@ -17,9 +17,14 @@ try {
   $weight=65;
   $height=1.5;
   $bmi=$weight/$height/$height;
-  echo ' 身長:'.$height.'m' ;
-  echo ' 体重:'.$weight.'kg';
-  echo ' BMI:'.$bmi.'kg/m/m';
+  $strWeight=' 身長:';
+  $strHeight=' 体重:';
+  $strBmi=' BMI:';
+  $boolWeight=' '.$strWeight===$weight;
+  echo $strHeight.$height.'m' ;
+  echo $strWeight.$weight.'kg';
+  echo $strBmi.$bmi.'kg/m/m';
+  echo $boolWeight;
   die();
 }
 $dbh = null;
