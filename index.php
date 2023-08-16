@@ -23,7 +23,9 @@ try {
   echo $strHeight.$height.'m' ;
   echo $strWeight.$weight.'kg';
   echo $strBmi.$bmi.'kg/m/m';
-  echo $strWeight===$weight;
+  echo $strWeight==$weight;
+  echo $strHeight==$height;
+  echo $strBmi==$bmi;
   die();
 }
 $dbh = null;
