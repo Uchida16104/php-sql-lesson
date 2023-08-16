@@ -13,11 +13,13 @@ try {
   }
 } catch(PDOException $e) {
   print('Error: '.$e->getMessage());
+  echo phpinfo();
   $weight=65;
   $height=1.5;
   $bmi=weight/height/height;
-  echo '身長：'.height.'m';
-  echo phpinfo();
+  echo '身長:'.height.'m';
+  echo '体重:'.weight.'kg';
+  echo 'BMI:'.bmi.'kg/m/m';
   die();
 }
 $dbh = null;
