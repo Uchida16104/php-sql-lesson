@@ -23,11 +23,7 @@ try {
   echo $strHeight.$height.'m' ;
   echo $strWeight.$weight.'kg';
   echo $strBmi.$bmi.'kg/m/m';
-  if($strWeight===$weight){
-    echo true;
-  } else {
-    echo false;
-  }
+  echo $strWeight===$weight;
   die();
 }
 $dbh = null;
