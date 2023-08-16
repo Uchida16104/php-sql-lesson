@@ -16,7 +16,7 @@ try {
   $weight=65;
   $height=1.5;
   $bmi=weight/height/height;
-  echo '身長：'.$height.'m';
+  echo '身長：'.height.'m';
   echo phpinfo();
   die();
 }
