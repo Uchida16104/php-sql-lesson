@@ -19,8 +19,8 @@ try {
   $intBmi=$intWeight/$intHeight/$intHeight;
   $true=true;
   $false=false;
-  $null = null;
-  $empty = '';
+  $null=null;
+  $empty='';
   $strWeight=' 身長:';
   $strHeight=' 体重:';
   $strBmi=' BMI:';
