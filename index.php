@@ -14,18 +14,21 @@ try {
 } catch(PDOException $e) {
   print('Error: '.$e->getMessage());
   echo phpinfo();
-  $weight=65;
-  $height=1.5;
-  $bmi=$weight/$height/$height;
+  $intWeight=65;
+  $intHeight=1.5;
+  $intBmi=$intWeight/$intHeight/$intHeight;
+  $true=true;
+  $false=false;
   $strWeight=' 身長:';
   $strHeight=' 体重:';
   $strBmi=' BMI:';
+  $boolTrue=' Boolean値:';
+  $boolFalse='　　Boolean値:';
   echo $strHeight.$height.'m' ;
   echo $strWeight.$weight.'kg';
   echo $strBmi.$bmi.'kg/m/m';
-  echo $strWeight==$weight;
-  echo $strHeight==$height;
-  echo $strBmi==$bmi;
+  echo $boolTrue.$true;
+  echo $boolFalse.$false;
   die();
 }
 $dbh = null;
