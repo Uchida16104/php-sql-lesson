@@ -33,6 +33,14 @@ try {
   echo $boolFalse.$false;
   echo $null;
   echo $empty;
+  function calculate($num){
+    echo '='.$num;
+  };
+  echo '1+2'.calculate(1+2);
+  echo '3-2'.calculate(3-2);
+  echo '3*4'.calculate(3*4);
+  echo '6/2'.calculate(6/2);
+  echo '5%4'.calculate(5%4);
   die();
 }
 $dbh = null;
