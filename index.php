@@ -34,22 +34,21 @@ try {
   echo $null;
   echo $empty;
   function calculate($num){
-    echo '='.$num;
-  };
-  echo ' 1+2'.calculate(1+2);
-  echo ' 3-2'.calculate(3-2);
-  echo ' 3*4'.calculate(3*4);
-  echo ' 6/2'.calculate(6/2);
-  echo ' 5%4'.calculate(5%4);
+      return '1+1='.$num;
+  }
+  print calculate(1+1);
+  $add;
   $add=1;
   $add+=2;
-  echo ' 1+2='.$add;
+  print ' 1+2='.$add;
+  $increase;
+  $decrease;
   $increase=3;
   $decrease=2;
   $increase++;
   $decrease--;
-  echo ' increase(3) is'.$increase;
-  echo ' decrease(2) is'.$derease;
+  print ' increase(3) is '.$increase;
+  print ' decrease(2) is '.$decrease;
   die();
 }
 $dbh = null;
