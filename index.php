@@ -33,10 +33,10 @@ try {
   echo $boolFalse.$false;
   echo $null;
   echo $empty;
-  function calculate($num){
-      return '1+1='.$num;
+  function calculate($str,$num){
+      return ' '.$str'.'='.$num;
   }
-  print calculate(1+1);
+  print calculate('1+1',1+1);
   $add;
   $add=1;
   $add+=2;
