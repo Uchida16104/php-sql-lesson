@@ -34,7 +34,7 @@ try {
   echo $null;
   echo $empty;
   function calculate($str,$num){
-      return ' '.$str.'='.$num;
+      return ' '.$str.'='.$num.'  boolean(str==num):'.var_dump($str==$num).' boolean(str===num):'.var_dump($str===$num);
   }
   print calculate('1+1',1+1);
   $add;
@@ -49,6 +49,19 @@ try {
   $decrease--;
   print ' increase(3) is '.$increase;
   print ' decrease(2) is '.$decrease;
+  $boolean0 = true;
+  $boolean1 = false;
+  if($boolean0 == true && $boolean1 == false) {
+    echo "<p>boolean0 is true, and boolean1 is false.</p>";
+  }
+  if($boolean0 == true || $boolean1 == true) {
+    echo "<p>boolean0 and boolean1 are true.</p>";
+  }
+  if(!($boolean0 == true || $boolean1 == false)) {
+    echo "<p>boolean0 isn't true and boolean1 isn't false.</p>";
+  }
+  $string='Hello'.'PHP';
+  echo $string;
   die();
 }
 $dbh = null;
