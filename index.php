@@ -34,7 +34,7 @@ try {
   echo $null;
   echo $empty;
   function calculate($str,$num){
-      return ' '.$str'.'='.$num;
+      return ' '.$str.'='.$num;
   }
   print calculate('1+1',1+1);
   $add;
