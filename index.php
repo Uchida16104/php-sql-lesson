@@ -60,7 +60,7 @@ try {
   if(!($boolean0 == true || $boolean1 == false)) {
     echo " boolean0 isn't true and boolean1 isn't false.";
   }
-  $string=' Hello'.'PHP';
+  $string=' Hello'.' PHP';
   echo $string;
   die();
 }
