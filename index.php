@@ -52,15 +52,15 @@ try {
   $boolean0 = true;
   $boolean1 = false;
   if($boolean0 == true && $boolean1 == false) {
-    echo "<p>boolean0 is true, and boolean1 is false.</p>";
+    echo " boolean0 is true, and boolean1 is false.";
   }
   if($boolean0 == true || $boolean1 == true) {
-    echo "<p>boolean0 and boolean1 are true.</p>";
+    echo " boolean0 and boolean1 are true.";
   }
   if(!($boolean0 == true || $boolean1 == false)) {
-    echo "<p>boolean0 isn't true and boolean1 isn't false.</p>";
+    echo " boolean0 isn't true and boolean1 isn't false.";
   }
-  $string='Hello'.'PHP';
+  $string=' Hello'.'PHP';
   echo $string;
   die();
 }
