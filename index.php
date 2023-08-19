@@ -95,7 +95,8 @@ try {
   $string=$blank.'Hello'.$blank.'PHP';
   echo $string;
   judge01(rand(0,100));
-  judge02(rand(0,100),rand(0,100));
+  judge02(rand(0,100));
+  judge03(rand(0,100),rand(0,100));
   die();
 }
 $dbh = null;
