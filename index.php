@@ -37,8 +37,8 @@ try {
   function calculate($str,$num){
     return $blank.$str.'='.$num.$blank.'boolean(str==num):'.var_dump($str==$num).$blank.'boolean(str===num):'.var_dump($str===$num);
   }
-  function judge($score){
-    print $blank.'$score:'.$blank.$score.'';
+  function judge01($score){
+    print $blank.'$score:'.$blank.$score;
     print $blank.'$score == 100'.$blank.':'.$blank.var_dump($score == 100);
     print $blank.'$score >= 60'.$blank.':'.$blank.var_dump($score >= 60);
     if ($score == 100) {
@@ -49,33 +49,53 @@ try {
       print $blank.'You try again and again.';
     }
   }
+  function judge02($ts){
+    print $blank.'$ts is'.$ts;
+    if ($ts%3==0&&$ts%6==0) {
+      print $blank.'$ts is multiple of 3 and 6.';
+    } else if ($ts%3==0&&$ts%6!=0) {
+      print $blank.'$ts is multiple of 3 but not 6.';
+    } else {
+      print $blank.'$ts is not the multiple.';
+    }
+  }
+  function judge03($random01,$random02){
+    if ($random01!=$random02&&$random01<$random02&&$random01%3==0||$random02%3==0):
+      print $blank.'random01='.$random01.', random02='.$random02.'.'.$blank.'random02 is larger than random01.'.$blank.'One of them is multiple of 3.';
+    elseif ($random01==$random02&&$random01%3==0&&$random02%3==0):
+      print $blank.'random01='.$random01.', random02='.$random02.'.'.$blank.'They are multiple of 3.';
+    else:
+      print $blank.'They are not multiple of 3.';
+    endif;
+  }
   print calculate('1+1',1+1);
   $add;
   $add=1;
   $add+=2;
-  print ' 1+2='.$add;
+  print $blank.'1+2='.$add;
   $increase;
   $decrease;
   $increase=3;
   $decrease=2;
   $increase++;
   $decrease--;
-  print ' increase(3) is '.$increase;
-  print ' decrease(2) is '.$decrease;
+  print $blank.'increase(3) is'.$blank.$increase;
+  print $blank.'decrease(2) is'.$blank.$decrease;
   $boolean0 = true;
   $boolean1 = false;
   if($boolean0 == true && $boolean1 == false) {
-    echo " boolean0 is true, and boolean1 is false.";
+    echo $blank."boolean0 is true, and boolean1 is false.";
   }
   if($boolean0 == true || $boolean1 == true) {
-    echo " boolean0 and boolean1 are true.";
+    echo $blank."boolean0 and boolean1 are true.";
   }
   if(!($boolean0 == true || $boolean1 == false)) {
-    echo " boolean0 isn't true and boolean1 isn't false.";
+    echo $blank."boolean0 isn't true and boolean1 isn't false.";
   }
-  $string=' Hello'.' PHP';
+  $string=$blank.'Hello'.$blank.'PHP';
   echo $string;
-  judge(rand(0,100));
+  judge01(rand(0,100));
+  judge02(rand(0,100),rand(0,100));
   die();
 }
 $dbh = null;
