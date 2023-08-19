@@ -14,6 +14,7 @@ try {
 } catch(PDOException $e) {
   print('Error: '.$e->getMessage());
   echo phpinfo();
+  $blank=' ';
   $intWeight=65;
   $intHeight=1.5;
   $intBmi=$intWeight/$intHeight/$intHeight;
@@ -21,9 +22,8 @@ try {
   $false=false;
   $null=null;
   $empty='';
-  $blank=' ';
-  $strWeight=$blank.'身長:'.$blank;
-  $strHeight=$blank.'体重:'.$blank;
+  $strWeight=$blank.'体重:'.$blank;
+  $strHeight=$blank.'身長:'.$blank;
   $strBmi=$blank.'BMI:'.$blank;
   $boolTrue=$blank.'Boolean値:'.$blank;
   $boolFalse=$blank.'Boolean値:'.$blank;
