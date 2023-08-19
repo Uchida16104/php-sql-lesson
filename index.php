@@ -21,11 +21,12 @@ try {
   $false=false;
   $null=null;
   $empty='';
-  $strWeight=' 身長:';
-  $strHeight=' 体重:';
-  $strBmi=' BMI:';
-  $boolTrue=' Boolean値:';
-  $boolFalse='　　Boolean値:';
+  $blank=' ';
+  $strWeight=$blank.'身長:';
+  $strHeight=$blank.'体重:';
+  $strBmi=$blank.'BMI:';
+  $boolTrue=$blank.'Boolean値:';
+  $boolFalse=$blank.'Boolean値:';
   echo $strHeight.$height.'m' ;
   echo $strWeight.$weight.'kg';
   echo $strBmi.$bmi.'kg/m/m';
@@ -34,7 +35,19 @@ try {
   echo $null;
   echo $empty;
   function calculate($str,$num){
-      return ' '.$str.'='.$num.'  boolean(str==num):'.var_dump($str==$num).' boolean(str===num):'.var_dump($str===$num);
+    return $blank.$str.'='.$num.$blank.'boolean(str==num):'.var_dump($str==$num).$blank.'boolean(str===num):'.var_dump($str===$num);
+  }
+  function judge($score){
+    print $blank.'$score:'.$blank.$score.'';
+    print $blank.'$score == 100'.$blank.':'.$blank.var_dump($score == 100);
+    print $blank.'$score >= 60'.$blank.':'.$blank.var_dump($score >= 60);
+    if ($score == 100) {
+      print $blank.'Perfect.';
+    } else if ($score >= 60) {
+      print $blank.'You passed.';
+    } else {
+      print $blank.'You try again and again.';
+    }
   }
   print calculate('1+1',1+1);
   $add;
@@ -62,6 +75,7 @@ try {
   }
   $string=' Hello'.' PHP';
   echo $string;
+  judge(rand(0,100));
   die();
 }
 $dbh = null;
