@@ -94,9 +94,11 @@ try {
   }
   $string=$blank.'Hello'.$blank.'PHP'.$blank;
   echo $string;
-  judge01(rand(0,100));
-  judge02(rand(0,100));
-  judge03(rand(0,100),rand(0,100));
+  for ($loop=0; $loop<=100; $loop++){
+    judge01(rand($loop,$loop+100));
+    judge02(rand($loop,$loop+100));
+    judge03(rand($loop,$loop+100),rand($loop,$loop+100));
+  }
   die();
 }
 $dbh = null;
