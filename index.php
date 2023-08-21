@@ -109,7 +109,33 @@ try {
   $ary[3][1]=55;
   $ary[3][2]=89;
   print_r($array);
+  $music_genre = '';
+  if (isset($_POST['music_genre'])) {
+    $food_genre = htmlspecialchars($_POST['music_genre'], ENT_QUOTES, 'UTF-8');
+  }
   die();
 }
 $dbh = null;
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TRY21</title>
+</head>
+<body>
+    <div>Select your favorite music.</div>
+    <form method="post">
+        <input type="radio" name="music_genre" value="select" <?php if ($music_genre === 'select') { echo 'checked'; } ?> checked>select
+        <input type="radio" name="music_genre" value="electronic" <?php if ($music_genre === 'electronic') { echo 'checked'; } ?>>electronic
+        <input type="radio" name="music_genre" value="techno" <?php if ($music_genre === 'techno') { echo 'checked'; } ?>>techno
+        <input type="radio" name="music_genre" value="ambient" <?php if ($music_genre === 'ambient') { echo 'checked'; } ?>>ambient
+        <input type="radio" name="music_genre" value="orchestral" <?php if ($music_genre === 'orchestral') { echo 'checked'; } ?>>orchestral
+        <input type="radio" name="music_genre" value="others" <?php if ($music_genre === 'others') { echo 'checked'; } ?>>others
+        <input type="submit" value="submit">
+    </form>
+    <?php if($_SERVER["REQUEST_METHOD"] == "POST"): ?>
+        <div>My favorite music genre is 「<?php echo $music_genre; ?>」.</div>
+    <?php endif; ?>
+</body>
+</html>
