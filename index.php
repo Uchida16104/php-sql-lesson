@@ -97,8 +97,18 @@ try {
   for ($loop=0; $loop<=100; $loop++){
     judge01(rand($loop,$loop+100));
     judge02(rand($loop,$loop+100));
-    judge03(rand($loop,$loop+100),rand($loop,$loop+100));
   }
+  $repeat=0;
+  while ($repeat<=100):
+    judge03(rand($repeat,$repeat+100),rand($repeat,$repeat+100));
+    $repeat++;
+  endwhile;
+  $ary=array();
+  $ary=[[0,1,1],[2,3,5],[8,13,21]];
+  $ary[3][0]=34;
+  $ary[3][1]=55;
+  $ary[3][2]=89;
+  print_r($array);
   die();
 }
 $dbh = null;
