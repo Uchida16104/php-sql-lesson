@@ -1,6 +1,6 @@
 <?php 
 try {
-  $dbh = new PDO("mysql:host=localhost; port=3306; dbname=foo; charset=utf8", 'root', 'root');
+  $dbh = new PDO("mysqli:host=localhost; port=3306; dbname=foo; charset=utf8", 'root', 'root');
   $dbh->query('SHOW TABLES;');
   $sql = 'SELECT * FROM param;';
   $dbh->query($sql);
