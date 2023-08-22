@@ -1,18 +1,12 @@
 <?php 
-try {
-  $dbh = new PDO("mysql:host=127.0.0.1; port=3306; dbname=foo; charset=utf8", 'root', 'root');
-  $dbh->query('SHOW TABLES;');
-  $sql = 'SELECT * FROM param;';
-  $dbh->query($sql);
-  foreach($dbh->query($sql) as $row){
-    print($row['id']);
-    print($row['name']);
-    print($row['class']);
-    print($row['subject']);
-    print($row['score']);
-  }
-} catch(PDOException $e) {
-  print('Error: '.$e->getMessage());
+<?php 
+$db = new mysqli('localhost', 'root', 'root', 'foo');
+if ($db->connect_error){
+  echo $db->connect_error;
+  echo phpinfo();
+  exit();
+}else{
+  print("Connection Succeed!");
   echo phpinfo();
   $blank=' ';
   $intWeight=65;
@@ -132,9 +126,7 @@ try {
   if (isset($_POST['music_genre'])) {
     $music_genre = htmlspecialchars($_POST['music_genre'], ENT_QUOTES, 'UTF-8');
   }
-  die();
 }
-$dbh = null;
 ?>
 <!DOCTYPE html>
 <html lang="en">
