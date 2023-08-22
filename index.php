@@ -108,7 +108,12 @@ try {
   $ary[3][0]=34;
   $ary[3][1]=55;
   $ary[3][2]=89;
-  print_r($array);
+  print $array;
+  $fp = fopen("README.md", "r");
+  while ($line = fgets($fp)) {
+    echo "$line<br>";
+  }
+  fclose($fp);
   $music_genre = '';
   if (isset($_POST['music_genre'])) {
     $music_genre = htmlspecialchars($_POST['music_genre'], ENT_QUOTES, 'UTF-8');
