@@ -63,7 +63,5 @@ SELECT product_name,price FROM product WHERE price >= 400 ORDER BY price DESC,ca
 SELECT category_id FROM product GROUP BY category_id;
 SELECT category_id,count(*) AS 'goodscount' FROM product GROUP BY category_id;
 SELECT category_id,price,count(1) AS 'countgoods' FROM product GROUP BY category_id,price;
-
-
 SELECT product.product_name,category.category_name,product.price FROM product INNER JOIN category ON product.category_id = category.category_id WHERE product.price <= 100;
 SELECT product.product_name,category.category_name,product.price FROM product LEFT JOIN category ON product.category_id = category.category_id WHERE product.price <= 100;
