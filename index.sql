@@ -21,3 +21,66 @@ end
 //
 call loop_insert(100);
 SELECT * FROM param;
+
+CREATE TABLE `category`
+(
+  `category_id` int
+(11) NOT NULL,
+  `category_name` varchar
+(100) CHARACTER
+SET utf8 DEFAULT
+NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `category` (`
+category_id`,
+`category_name
+`) VALUES
+(1, 'vegetables'),
+(2, 'fruits'),
+(3, 'meats'),
+(4, 'fish'),
+(5, 'spices');
+CREATE TABLE `product`
+(
+  `product_id` int
+(11) NOT NULL,
+  `product_code` int
+(11) DEFAULT NULL,
+  `product_name` varchar
+(100) CHARACTER
+SET utf8 DEFAULT
+NULL,
+  `price` decimal
+(10,0) DEFAULT NULL,
+  `category_id` int
+(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `product` (`
+product_id`,
+`product_code
+`, `product_name`, `price`, `category_id`) VALUES
+(1, 1001, 'cabbage', '130', 1),
+(2, 1002, 'lettuce', '150', 1),
+(3, 1003, 'tomato', '100', 1),
+(4, 1004, 'cucumber', '50', 1),
+(5, 1005, 'apple', '170', 2),
+(6, 1006, 'peach', '250', 2),
+(7, 1007, 'pear', '300', 2),
+(8, 1008, 'banana', '120', 2),
+(9, 1009, 'beef', '500', 3),
+(10, 1010, 'pork', '400', 3),
+(11, 1011, 'chicken', '300', 3),
+(12, 1012, 'pacific saury', '200', 4),
+(13, 1013, 'horse mackerel ', '120', 4),
+(14, 1014, 'mackerel', '150', 4),
+(15, 1015, 'salt', '100', 5),
+(16, 1016, 'pepper', '500', 5),
+(17, 1017, 'sugar', '100', 5),
+(18, 1018, 'soy sauce', '150', 5),
+(19, 1019, 'croquette', '100', 6);
+ALTER TABLE `category`
+ADD PRIMARY KEY
+(`category_id`);
+ALTER TABLE `product`
+ADD PRIMARY KEY
+(`product_id`);
