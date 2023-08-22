@@ -62,3 +62,6 @@ SELECT product_name,price FROM product WHERE price <= 300 ORDER BY price ASC,cat
 SELECT product_name,price FROM product WHERE price >= 400 ORDER BY price DESC,category_id ASC;
 SELECT category_id FROM product GROUP BY category_id;
 SELECT category_id,count(*) AS 'goodscount' FROM product GROUP BY category_id;
+SELECT category_id,price,count(1) AS 'countgoods' FROM product GROUP BY category_id,price;
+SELECT category_id,avg(price) AS 'average'　FROM　product　GROUP BY　category_id;
+SELECT category_id,count(price) AS 'count'　FROM　product　GROUP BY　category_id;
