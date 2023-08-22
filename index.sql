@@ -71,7 +71,7 @@ INSERT INTO product(product_id,product_code,product_name,price,category_id) VALU
 SELECT * FROM product;
 UPDATE product SET price = price * 0.9 WHERE product_id = 20;
 SELECT * FROM product;
-UPDATE product SET price = price * 0.5 SET product_name="broccoli" WHERE product_id = 20;
+UPDATE product SET price = price * 0.5, product_name="broccoli" WHERE product_id = 20;
 SELECT * FROM product;
 DELETE FROM product WHERE product_id = 20;
 SELECT * FROM product;
