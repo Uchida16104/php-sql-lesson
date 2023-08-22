@@ -103,6 +103,12 @@ try {
     judge03(rand($repeat,$repeat+100),rand($repeat,$repeat+100));
     $repeat++;
   endwhile;
+  $check_data=rand(0,100);
+   if (preg_match("/^[a-zA-Z0-9]+$/", $check_data) && $check_data == '') {
+     echo "It's included half-width alphanumeric character";
+   } else {
+     echo "It's excluded half-width alphanumeric character";
+   }
   $ary=array();
   $ary=[[0,1,1],[2,3,5],[8,13,21]];
   $ary[3][0]=34;
