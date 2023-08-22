@@ -103,7 +103,7 @@ try {
     judge03(rand($repeat,$repeat+100),rand($repeat,$repeat+100));
     $repeat++;
   endwhile;
-  $check_data=rand(0,100);
+  $check_data=round(rand(0,10));
    if (preg_match("/^[a-zA-Z0-9]+$/", $check_data) && $check_data == '') {
      echo "It's included half-width alphanumeric character";
    } else {
