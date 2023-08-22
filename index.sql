@@ -65,3 +65,15 @@ SELECT category_id,count(*) AS 'goodscount' FROM product GROUP BY category_id;
 SELECT category_id,price,count(1) AS 'countgoods' FROM product GROUP BY category_id,price;
 SELECT product.product_name,category.category_name,product.price FROM product INNER JOIN category ON product.category_id = category.category_id WHERE product.price <= 100;
 SELECT product.product_name,category.category_name,product.price FROM product LEFT JOIN category ON product.category_id = category.category_id WHERE product.price <= 100;
+INSERT INTO product(product_id,product_code,product_name,price,category_id) VALUES
+  (20,1020,'bean sprouts',30,1),
+  (21,1021,'shallot',200,1);
+SELECT * FROM product;
+UPDATE product SET price = price * 0.9 WHERE product_id = 20;
+SELECT * FROM product;
+UPDATE product SET price = price * 0.5 SET product_name="broccoli" WHERE product_id = 20;
+SELECT * FROM product;
+DELETE FROM product WHERE product_id = 20;
+SELECT * FROM product;
+DELETE FROM product WHERE product_id = 21;
+SELECT * FROM product;
