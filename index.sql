@@ -47,3 +47,5 @@ INSERT INTO `product` (`product_id`,`product_code`, `product_name`, `price`, `ca
 (19, 1019, 'croquette', '100', 6);
 ALTER TABLE `category` ADD PRIMARY KEY (`category_id`);
 ALTER TABLE `product` ADD PRIMARY KEY (`product_id`);
+SELECT * FROM `category`;
+SELECT * FROM `product`;
