@@ -111,7 +111,7 @@ try {
   print_r($array);
   $music_genre = '';
   if (isset($_POST['music_genre'])) {
-    $food_genre = htmlspecialchars($_POST['music_genre'], ENT_QUOTES, 'UTF-8');
+    $music_genre = htmlspecialchars($_POST['music_genre'], ENT_QUOTES, 'UTF-8');
   }
   die();
 }
@@ -137,5 +137,19 @@ $dbh = null;
     <?php if($_SERVER["REQUEST_METHOD"] == "POST"): ?>
         <div>My favorite music genre is 「<?php echo $music_genre; ?>」.</div>
     <?php endif; ?>
+    <?php
+define('MAX','3');
+$customers = array(
+  array('name' => 'Amy', 'age' => '10'),
+  array('name' => 'Beth', 'age' => '12'),
+  array('name' => 'David', 'age' => '16'),
+  array('name' => 'Emma', 'age' => '24'),
+  array('name' => 'Frederic', 'age' => '40'),
+  array('name' => 'George', 'age' => '72'),
+  array('name' => 'Henry', 'age' => '41'),
+);
+$customers_num = count($customers);
+$max_page = ceil($customers_num / MAX);
+?>
 </body>
 </html>
