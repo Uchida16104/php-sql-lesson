@@ -109,6 +109,11 @@ try {
   $ary[3][1]=55;
   $ary[3][2]=89;
   print $array;
+  $fr = fopen("README.md", "r");
+  while ($line = fgets($fr)) {
+    echo "$line<br>";
+  }
+  fclose($fr);
   $fw = fopen("README.md", "w");
   fwrite($fw, ' From ITEX Portal.');
   fclose($fw);
