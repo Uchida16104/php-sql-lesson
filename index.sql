@@ -60,3 +60,5 @@ SELECT product_name,price FROM product WHERE product_name LIKE '_l';
 SELECT product_name,price FROM product WHERE price >= 200 ORDER BY price;
 SELECT product_name,price FROM product WHERE price <= 300 ORDER BY price ASC,category_id DESC;
 SELECT product_name,price FROM product WHERE price >= 400 ORDER BY price DESC,category_id ASC;
+SELECT category_id FROM product GROUP BY category_id;
+SELECT category_id,count(*) AS 'goodscount' FROM product GROUP BY category_id;
