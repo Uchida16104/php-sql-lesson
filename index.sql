@@ -22,43 +22,10 @@ end
 call loop_insert(100);
 SELECT * FROM param;
 
-CREATE TABLE `category`
-(
-  `category_id` int
-(11) NOT NULL,
-  `category_name` varchar
-(100) CHARACTER
-SET utf8 DEFAULT
-NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-INSERT INTO `category` (`
-category_id`,
-`category_name
-`) VALUES
-(1, 'vegetables'),
-(2, 'fruits'),
-(3, 'meats'),
-(4, 'fish'),
-(5, 'spices');
-CREATE TABLE `product`
-(
-  `product_id` int
-(11) NOT NULL,
-  `product_code` int
-(11) DEFAULT NULL,
-  `product_name` varchar
-(100) CHARACTER
-SET utf8 DEFAULT
-NULL,
-  `price` decimal
-(10,0) DEFAULT NULL,
-  `category_id` int
-(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-INSERT INTO `product` (`
-product_id`,
-`product_code
-`, `product_name`, `price`, `category_id`) VALUES
+CREATE TABLE `category` (`category_id` int (11) NOT NULL, `category_name` varchar(100) CHARACTER SET utf8 DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `category` (`category_id`,`category_name`) VALUES (1, 'vegetables'), (2, 'fruits'), (3, 'meats'), (4, 'fish'), (5, 'spices');
+CREATE TABLE `product` (`product_id` int(11) NOT NULL,`product_code` int(11) DEFAULT NULL,`product_name` varchar(100) CHARACTERSET utf8 DEFAULT NULL,`price` decimal(10,0) DEFAULT NULL,`category_id` int(11) DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `product` (`product_id`,`product_code`, `product_name`, `price`, `category_id`) VALUES
 (1, 1001, 'cabbage', '130', 1),
 (2, 1002, 'lettuce', '150', 1),
 (3, 1003, 'tomato', '100', 1),
@@ -78,9 +45,5 @@ product_id`,
 (17, 1017, 'sugar', '100', 5),
 (18, 1018, 'soy sauce', '150', 5),
 (19, 1019, 'croquette', '100', 6);
-ALTER TABLE `category`
-ADD PRIMARY KEY
-(`category_id`);
-ALTER TABLE `product`
-ADD PRIMARY KEY
-(`product_id`);
+ALTER TABLE `category` ADD PRIMARY KEY (`category_id`);
+ALTER TABLE `product` ADD PRIMARY KEY (`product_id`);
