@@ -109,11 +109,14 @@ try {
   $ary[3][1]=55;
   $ary[3][2]=89;
   print $array;
-  $fp = fopen("README.md", "r");
-  while ($line = fgets($fp)) {
+  $fw = fopen("README.md", "w");
+  fwrite($fw, ' From ITEX Portal.');
+  fclose($fw);
+  $fr = fopen("README.md", "r");
+  while ($line = fgets($fr)) {
     echo "$line<br>";
   }
-  fclose($fp);
+  fclose($fr);
   $music_genre = '';
   if (isset($_POST['music_genre'])) {
     $music_genre = htmlspecialchars($_POST['music_genre'], ENT_QUOTES, 'UTF-8');
