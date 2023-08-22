@@ -77,4 +77,4 @@ DELETE FROM product WHERE product_id = 20;
 SELECT * FROM product;
 DELETE FROM product WHERE product_id = 21;
 SELECT * FROM product;
-create user 'hirotoshiuchida'@'localhost' identified by 'user123';
+create user 'hirotoshiuchida'@'127.0.0.1' identified by 'user123';
