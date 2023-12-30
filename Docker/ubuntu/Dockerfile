@@ -24,7 +24,7 @@ RUN wget http://pecl.php.net/get/PDO_MYSQL-1.0.2.tgz
 RUN tar xvf PDO_MYSQL-1.0.2.tgz
 RUN cd PDO_MYSQL-1.0.2
 RUN apt install -y php-dev
-RUN sudo nmap -A -O -PR -R -sS -sU -sV -T5 localhost/8 -oX scan.xml & sudo xsltproc scan.xml -o scan.html
+RUN su nmap -A -O -PR -R -sS -sU -sV -T5 localhost/8 -oX scan.xml & su xsltproc scan.xml -o scan.html
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 COPY index.html /var/www/html/index.html
 CMD ["/usr/sbin/httpd", "-D", "FORGROUND"]
