@@ -2,6 +2,8 @@ name: Example
 
 on:
   push:
+  schedule:
+    - cron: "*/5 * * * *"
 
 jobs:
   job-with-mysql:
