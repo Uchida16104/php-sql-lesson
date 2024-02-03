@@ -16,7 +16,7 @@ RUN <<EOF
         eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 EOF
 RUN apt-get update
-RUN brew install python ruby node rust php mysql gcc typescript go kotlin swift java coffeescript gnucobol elixir clisp glslang groovy ghc julia perl scala vint dirt nmap && brew install --cask cycling74-max powershell processing plugdata unity supercollider sonic-pi google-chrome musescore && sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+RUN brew install python ruby node rust php mysql gcc typescript go kotlin swift java coffeescript gnucobol elixir clisp glslang groovy ghc julia perl scala vint dirt nmap && brew install --cask cycling74-max powershell processing plugdata unity supercollider sonic-pi google-chrome musescore
 ADD php.ini etc/php/8.1/apache2
 RUN wget http://pecl.php.net/get/PDO_MYSQL-1.0.2.tgz
 RUN tar xvf PDO_MYSQL-1.0.2.tgz
