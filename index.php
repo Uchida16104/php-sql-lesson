@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TRY21</title>
+</head>
+<body>
 <?php 
 try {
   $dbh = new PDO('mysql:host=sql.freedb.tech;dbname=freedb_Uchida16104', 'freedb_Uchida16104', 'R2TVJB4s!4mz4Uv');
@@ -136,13 +143,6 @@ try {
 }
 $dbh = null;
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>TRY21</title>
-</head>
-<body>
     <div>Select your favorite music.</div>
     <form method="post">
         <input type="radio" name="music_genre" value="select" <?php if ($music_genre === 'select') { echo 'checked'; } ?> checked>select
