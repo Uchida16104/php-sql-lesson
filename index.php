@@ -7,7 +7,7 @@
 <body>
 <?php 
 try {
-  $dbh = new PDO('mysql:host=sql.freedb.tech;dbname=freedb_Uchida16104', 'freedb_Uchida16104', 'R2TVJB4s!4mz4Uv');
+  $dbh = new PDO('mysql:host=gateway01.ap-northeast-1.prod.aws.tidbcloud.com;port=4000;dbname=test', '2N8k7U6b9a5G3By.root', 'Mu67ABcgaL7Qyjdo');
   $dbh->query('SHOW TABLES;');
   $sql = 'SELECT * FROM param;';
   $dbh->query($sql);
