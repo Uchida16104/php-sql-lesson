@@ -6,8 +6,23 @@
 </head>
 <body>
 <?php 
+$host = 'mysql-uho02741358.e.aivencloud.com';
+$port = 27754;
+$dbname = 'defaultdb';
+$user = 'avnadmin';
+$password = 'AVNS_VQjeR3X7mMJJXQWC8nL';
+$ssl_ca = __DIR__ . '/ca.pem';
 try {
-  $dbh = new PDO('mysql:host=mysql-uho02741358.e.aivencloud.com,port=27750,dbname=defaultdb,charset=utf-8', 'avnadmin', 'AVNS_VQjeR3X7mMJJXQWC8nL');
+　$dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4";
+　$options = [
+      PDO::MYSQL_ATTR_SSL_CA => $ssl_ca,
+      PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+      PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+  ];
+
+  $pdo = new PDO($dsn, $user, $password, $options);
+  echo "Connection successful!";
+  $dbh = new PDO($dsn, $user, $password, $options);
   $dbh->query('SHOW TABLES;');
   $sql = 'SELECT * FROM param;';
   $dbh->query($sql);
