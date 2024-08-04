@@ -7,7 +7,7 @@
 <body>
 <?php 
 try {
-  $dbh = new PDO('mysql:host=gateway01.ap-northeast-1.prod.aws.tidbcloud.com;port=4000;dbname=test', '2N8k7U6b9a5G3By.root', 'Mu67ABcgaL7Qyjdo');
+  $dbh = new PDO('mysql:host=mysql-uho02741358.e.aivencloud.com,port=27750,dbname=defaultdb,charset=utf-8', 'avnadmin', 'AVNS_VQjeR3X7mMJJXQWC8nL');
   $dbh->query('SHOW TABLES;');
   $sql = 'SELECT * FROM param;';
   $dbh->query($sql);
