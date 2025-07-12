@@ -22,5 +22,5 @@ RUN tar xvf PDO_MYSQL-1.0.2.tgz
 RUN cd PDO_MYSQL-1.0.2
 RUN apt install -y php-dev
 COPY --from=composer /usr/bin/composer /usr/bin/composer
-COPY index.html /var/www/html/index.html
+COPY index.php /var/www/html/index.php
 CMD ["/usr/sbin/httpd", "-D", "FORGROUND"]
