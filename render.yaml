@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: php-sql-lesson
+    env: docker
+    plan: free
+    branch: master
+
+    dockerfilePath: ./Docker/ubuntu/Dockerfile
+
+    buildCommand: |
+      composer install || true
+
+    startCommand: ""
+
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: DB_DSN
+        value: "sqlite:/data/index.db"
