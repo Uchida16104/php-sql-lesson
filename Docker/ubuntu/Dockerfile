@@ -1,7 +1,7 @@
-FROM ubuntu/php:8.2-apache2
+FROM ubuntu/php:8.1-apache
 EXPOSE 80
 WORKDIR /var/www/html
-RUN apt update -y && docker-php-ext-install pdo_mysql mysqli && rm -rf /var/lib/apt/lists/* && apt install -y vim httpd nginx libonig-dev php8.1 php8.1-intl php8.1-mbstring php8.1-mysql php8.1-gd php8.1-fpm php8.1-mysqlnd php8.1-xmlrpclibapache2-mod-php wget tar wpdl mysql-client mysql-server libcppdb-odbc0　python3 python3-mysqldb gcc make libssl-dev zlib1g-dev ruby-full rust typescript go kotlin swift java coffeescript gnucobol elixir clisp glslang groovy ghc julia perl scala vint dirt nmap cycling74-max powershell processing plugdata unity supercollider sonic-pi google-chrome musescore && apt-get install build-essential procps epel-release curl file git nodejs npm && update-alternatives --install /usr/bin/node node /usr/bin/nodejs && ufw app list && ufw allow 'Nginx HTTP' && ufw status && systemctl status nginx && curl -4 icanhazip.com
+RUN apt update -y && docker-php-ext-install pdo pdo_mysql mysqli && rm -rf /var/lib/apt/lists/* && apt install -y vim httpd nginx libonig-dev php8.1 php8.1-intl php8.1-mbstring php8.1-mysql php8.1-gd php8.1-fpm php8.1-mysqlnd php8.1-xmlrpclibapache2-mod-php wget tar wpdl mysql-client mysql-server libcppdb-odbc0　python3 python3-mysqldb gcc make libssl-dev zlib1g-dev ruby-full rust typescript go kotlin swift java coffeescript gnucobol elixir clisp glslang groovy ghc julia perl scala vint dirt nmap cycling74-max powershell processing plugdata unity supercollider sonic-pi google-chrome musescore && apt-get install build-essential procps epel-release curl file git nodejs npm && update-alternatives --install /usr/bin/node node /usr/bin/nodejs && ufw app list && ufw allow 'Nginx HTTP' && ufw status && systemctl status nginx && curl -4 icanhazip.com
 ENV wpdl https://wordpress.org/latest-ja.tar.gz
 RUN cd /var/www/html && wget -O - $wpdl | tar xzfv -
 RUN mv /var/www/html/wordpress/* /var/www/html
@@ -22,5 +22,6 @@ RUN tar xvf PDO_MYSQL-1.0.2.tgz
 RUN cd PDO_MYSQL-1.0.2
 RUN apt install -y php-dev
 COPY --from=composer /usr/bin/composer /usr/bin/composer
+COPY html/ /var/www/html/
 COPY index.php index.sql /var/www/html/index.php
 CMD ["/usr/sbin/httpd", "-D", "FORGROUND"]
