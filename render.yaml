@@ -1,11 +1,9 @@
 services:
   - type: web
-    name: php-mysql-app
+    name: php-sql-lesson
     env: docker
-    repo: https://github.com/Uchida16104/php-sql-lesson
-    branch: master
-    dockerContext: Docker/ubuntu
-    dockerfilePath: Dockerfile
+    dockerfilePath: Docker/ubuntu/Dockerfile
+    plan: free
     envVars:
       - key: MYSQL_ROOT_PASSWORD
         value: root
@@ -15,4 +13,3 @@ services:
         value: hirotoshiuchida
       - key: MYSQL_PASSWORD
         value: root
-    plan: free
