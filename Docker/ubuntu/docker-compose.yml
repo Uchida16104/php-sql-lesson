@@ -1,8 +1,6 @@
-version: "3.9"
 services:
   web:
     image: nginx:latest
-    build: .
     container_name: phpdb
     tty: true
     depends_on:
@@ -13,9 +11,10 @@ services:
     ports:
       - '8080:80'
     environment:
-      - NGINX_HOST='localhost'
+      - NGINX_HOST=localhost
       - NGINX_PORT=80
     restart: always
+
   db:
     image: mysql:latest
     command: --default-authentication-plugin=mysql_native_password
@@ -26,7 +25,7 @@ services:
       - "./ubuntu/initdb:/docker-entrypoint-initdb.d"
       - "db_data:/var/lib/mysql"
       - "./index.sql:/docker-entrypoint-initdb.d/init.sql"
-    expose: 
+    expose:
       - '3306'
     ports:
       - '3306:3306'
@@ -35,6 +34,7 @@ services:
       - MYSQL_DATABASE=lesson
       - MYSQL_USER=hirotoshiuchida
       - MYSQL_PASSWORD=root
+
   phpmyadmin:
     container_name: phpMyAdmin
     depends_on:
@@ -45,10 +45,10 @@ services:
     restart: always
     ports:
       - "8080:80"
+
   php:
     image: php:8.1-apache
     container_name: php8.1-trial2
-    build: ./php
     volumes:
       - "./html:/var/www/html"
     ports:
@@ -57,6 +57,7 @@ services:
       - mysql
     links:
       - db:mysql
+
   mysql:
     image: mysql:latest
     container_name: mysql-trial2
@@ -72,18 +73,18 @@ services:
       - MYSQL_DATABASE=lesson
       - MYSQL_USER=hirotoshiuchida
       - MYSQL_PASSWORD=root
+
   node:
-    build: .
     image: node:latest
     container_name: node.js
     tty: true
-    ports: 
+    ports:
       - '8800:80'
     volumes:
       - '/var/lib'
     restart: always
+
   ruby:
-    build: .
     image: ruby:latest
     container_name: ruby
     tty: true
@@ -92,9 +93,9 @@ services:
     volumes:
       - '/var/lib'
     restart: always
+
   python3:
-    build: .
-    image: python3:latest
+    image: python:3
     container_name: python3
     tty: true
     ports:
@@ -102,6 +103,7 @@ services:
     volumes:
       - '/var/lib'
     restart: always
+
   wordpress:
     container_name: wordpress
     hostname: wordpress
@@ -121,10 +123,12 @@ services:
       - WORDPRESS_DB_NAME=wordpress
       - WORDPRESS_DB_USER=wordpress
       - WORDPRESS_DB_PASSWORD=wordpress
+
 networks:
   default:
     name: phpsql
     driver: webdb
     external: true
+
 volumes:
   db_data:
