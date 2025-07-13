@@ -22,4 +22,6 @@ jobs:
          sudo chmod +x /usr/local/bin/docker-compose
          docker-compose --version
     - name: Build the Docker image
-      run: docker build . --file Docker/ubuntu/Dockerfile && docker-compose build -f Docker/ubuntu/docker-compose.yml >> $GITHUB_STEP_SUMMARY
+      run: |
+         docker build . --file Docker/ubuntu/Dockerfile
+         docker compose -f Docker/ubuntu/docker-compose.yml build
