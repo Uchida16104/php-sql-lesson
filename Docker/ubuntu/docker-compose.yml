@@ -18,7 +18,7 @@ services:
   db:
     image: mysql:latest
     command: --default-authentication-plugin=mysql_native_password
-    container_name: database
+    container_name: db
     restart: always
     volumes:
       - "./ubuntu/mysql:/var/lib/mysql"
@@ -41,12 +41,15 @@ services:
       - mysql
     image: phpmyadmin/phpmyadmin
     environment:
-      - PMA_HOST=mysql
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: root
     restart: always
     ports:
       - "8081:80"
 
   php:
+    build: .
     image: php:8.1-apache
     container_name: php8.1-trial2
     volumes:
@@ -54,7 +57,7 @@ services:
     ports:
       - "8000:80"
     depends_on:
-      - mysql
+      - db
     links:
       - db:mysql
 
