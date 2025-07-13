@@ -23,5 +23,4 @@ RUN cd PDO_MYSQL-1.0.2
 RUN apt install -y php-dev
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 COPY html/ /var/www/html/
-COPY index.php index.sql /var/www/html/index.php
 CMD ["/usr/sbin/httpd", "-D", "FORGROUND"]
