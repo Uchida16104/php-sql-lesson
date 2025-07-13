@@ -126,3 +126,5 @@ networks:
     name: phpsql
     driver: webdb
     external: true
+volumes:
+  db_data:
