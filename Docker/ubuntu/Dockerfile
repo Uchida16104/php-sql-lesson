@@ -15,21 +15,9 @@ RUN apt-get update && \
         php-dev \
         php-pear \
         vim \
-        nginx \
-        httpd \
-        php8.1-intl \
-        php8.1-mbstring \
-        php8.1-mysql \
-        php8.1-gd \
-        php8.1-fpm \
-        php8.1-mysqlnd \
-        php8.1-xmlrpc \
-        libapache2-mod-php \
         wget \
         tar \
         mysql-client \
-        mysql-server \
-        libcppdb-odbc0 \
         python3 \
         python3-mysqldb \
         gcc \
@@ -41,11 +29,7 @@ RUN apt-get update && \
         nodejs \
         typescript \
         golang \
-        kotlin \
-        swift \
         default-jdk \
-        coffeescript \
-        gnucobol \
         elixir \
         clisp \
         glslang-tools \
@@ -54,20 +38,13 @@ RUN apt-get update && \
         julia \
         perl \
         scala \
-        vint \
         nmap \
         musescore \
         powershell \
-        processing \
-        plugdata \
-        unity \
-        supercollider \
-        sonic-pi \
-        google-chrome-stable \
     && docker-php-ext-install pdo pdo_mysql mysqli \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-    
+
 COPY ca.pem /etc/ssl/certs/ca.pem
 
 COPY php.ini /usr/local/etc/php/
@@ -78,7 +55,7 @@ RUN wget -O - $wpdl | tar xzfv - && \
     mv wordpress/* /var/www/html/ && \
     chown -R www-data:www-data /var/www/html && \
     chmod 2775 /var/www/html
-    
+
 COPY ../../index.php /var/www/html/index.php
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
