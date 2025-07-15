@@ -1,52 +1,47 @@
 FROM php:8.1-apache
 
 ENV DEBIAN_FRONTEND=noninteractive
-
 WORKDIR /var/www/html
 
-RUN apt-get update && \
-    apt-get install -y \
-        libpq-dev \
-        libonig-dev \
-        libzip-dev \
-        unzip \
-        libcurl4-openssl-dev \
-        libssl-dev \
-        php-dev \
-        php-pear \
-        vim \
-        wget \
-        tar \
-        mysql-client \
-        python3 \
-        python3-pip \
-        gcc \
-        make \
-        zlib1g-dev \
-        ruby-full \
-        npm \
-        nodejs \
-        typescript \
-        golang \
-        default-jdk \
-        perl \
-        nmap \
-        # rustc \
-        # scala \
-        # clisp \
-        # julia \
-    && docker-php-ext-install pdo pdo_mysql mysqli \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN pip3 install pymysql
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    libonig-dev \
+    libzip-dev \
+    unzip \
+    libcurl4-openssl-dev \
+    libssl-dev \
+    php8.1-dev \
+    php-pear \
+    vim \
+    wget \
+    tar \
+    mysql-client \
+    python3 \
+    python3-mysqldb \
+    gcc \
+    make \
+    zlib1g-dev \
+    ruby-full \
+    rustc \
+    npm \
+    nodejs \
+    golang-go \
+    default-jdk \
+    perl \
+    scala \
+    clisp \
+    julia \
+    nmap \
+  && docker-php-ext-install pdo pdo_mysql mysqli intl mbstring xmlrpc \
+  && npm install -g typescript \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
 
 COPY ca.pem /etc/ssl/certs/ca.pem
 
 COPY php.ini /usr/local/etc/php/
 
 ENV wpdl=https://wordpress.org/latest-ja.tar.gz
-
 RUN wget -O - $wpdl | tar xzfv - && \
     mv wordpress/* /var/www/html/ && \
     chown -R www-data:www-data /var/www/html && \
