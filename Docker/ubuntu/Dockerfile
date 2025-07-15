@@ -30,17 +30,17 @@ RUN apt-get update && \
         typescript \
         golang \
         default-jdk \
-        elixir \
-        clisp \
-        glslang-tools \
-        groovy \
-        ghc \
-        julia \
         perl \
         scala \
+        clisp \
+        julia \
         nmap \
-        musescore \
-        powershell \
+        # elixir \
+        # ghc \
+        # glslang-tools \
+        # groovy \
+        # powershell \
+        # musescore \
     && docker-php-ext-install pdo pdo_mysql mysqli \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
@@ -58,7 +58,7 @@ RUN wget -O - $wpdl | tar xzfv - && \
 
 COPY ../../index.php /var/www/html/index.php
 
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 EXPOSE 80
 
