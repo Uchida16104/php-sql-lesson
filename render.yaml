@@ -2,8 +2,10 @@ services:
   - type: web
     name: php-sql-lesson
     env: docker
-    dockerfilePath: Docker/ubuntu/Dockerfile
     plan: free
+    region: singapore
+    dockerfilePath: ./Docker/ubuntu/Dockerfile
+    autoDeploy: true
     envVars:
       - key: MYSQL_ROOT_PASSWORD
         value: root
