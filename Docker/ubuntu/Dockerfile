@@ -3,39 +3,7 @@ FROM php:8.1-apache
 ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /var/www/html
 
-RUN apt-get update && apt-get install -y \
-    libpq-dev \
-    libonig-dev \
-    libzip-dev \
-    unzip \
-    libcurl4-openssl-dev \
-    libssl-dev \
-    php8.1-dev \
-    php-pear \
-    vim \
-    wget \
-    tar \
-    mysql-client \
-    python3 \
-    python3-mysqldb \
-    gcc \
-    make \
-    zlib1g-dev \
-    ruby-full \
-    rustc \
-    npm \
-    nodejs \
-    golang-go \
-    default-jdk \
-    perl \
-    scala \
-    clisp \
-    julia \
-    nmap \
-  && docker-php-ext-install pdo pdo_mysql mysqli intl mbstring xmlrpc \
-  && npm install -g typescript \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y libpq-dev libonig-dev libzip-dev unzip libcurl4-openssl-dev libssl-dev php8.1-dev php-pear vim wget tar mysql-client python3 python3-mysqldb gcc make zlib1g-dev ruby-full rustc npm nodejs golang-go default-jdk perl scala clisp julia nmap && docker-php-ext-install pdo pdo_mysql mysqli intl mbstring xmlrpc && npm install -g typescript && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY ca.pem /etc/ssl/certs/ca.pem
 
