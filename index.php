@@ -12,6 +12,7 @@ $dbname = "defaultdb";
 $user = "avnadmin";
 $password = "AVNS_VQjeR3X7mMJJXQWC8nL";
 $ssl_ca = __DIR__ . "/ca.pem";
+$blank = " ";
 try {
     $dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4";
     $options = [
@@ -36,7 +37,6 @@ try {
 } catch (PDOException $e) {
     print "Error: " . $e->getMessage();
     echo phpinfo();
-    $blank = " ";
     $intWeight = 65;
     $intHeight = 1.5;
     $intBmi = $intWeight / $intHeight / $intHeight;
