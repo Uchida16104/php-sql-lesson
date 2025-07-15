@@ -21,8 +21,6 @@ jobs:
         sudo chmod +x /usr/local/bin/docker-compose
         docker-compose --version
 
-    - name: Build and run docker-compose
+    - name: Build Docker image from project root
       run: |
-        cd Docker/ubuntu
-        docker compose build
-        docker compose config
+        docker build -f Docker/ubuntu/Dockerfile .
