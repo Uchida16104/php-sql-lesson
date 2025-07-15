@@ -19,31 +19,27 @@ RUN apt-get update && \
         tar \
         mysql-client \
         python3 \
-        python3-mysqldb \
+        python3-pip \
         gcc \
         make \
         zlib1g-dev \
         ruby-full \
-        rustc \
         npm \
         nodejs \
         typescript \
         golang \
         default-jdk \
         perl \
-        scala \
-        clisp \
-        julia \
         nmap \
-        # elixir \
-        # ghc \
-        # glslang-tools \
-        # groovy \
-        # powershell \
-        # musescore \
+        # rustc \
+        # scala \
+        # clisp \
+        # julia \
     && docker-php-ext-install pdo pdo_mysql mysqli \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+RUN pip3 install pymysql
 
 COPY ca.pem /etc/ssl/certs/ca.pem
 
