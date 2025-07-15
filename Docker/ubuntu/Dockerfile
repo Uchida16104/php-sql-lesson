@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y default-mysql-client sqlite3 libsqlite3
 
 COPY ca.pem /etc/ssl/certs/ca.pem
 COPY php.ini /usr/local/etc/php/
+COPY index.php ../../index.php
 COPY ../../index.php /var/www/html/index.php
 
 EXPOSE 80
